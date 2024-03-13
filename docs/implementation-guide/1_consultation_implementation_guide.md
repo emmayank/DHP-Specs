@@ -1296,7 +1296,7 @@ This section contains recommendations for implementing the APIs related to fulfi
 3. The BPP update the order and return updated order object in /on_update call.
 
 #### 1.3.3.3 Cancel Workflow
-1. The BAP choose to cancel the Order.
+1. The User choose to cancel the Order.
 2. The BAP call /get_cancellation_reason endpoint of the BPP.
 3. The BPP respond with cancellation reasons using /cancellation_reason endpoint.
 4. The BAP renders the reasons and user chooses one and proceed with cancellation.
