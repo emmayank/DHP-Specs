@@ -6,9 +6,11 @@
         "country": {
           "name": "India",
           "code": "IND"
+        },
+        "city" : {
+          "code" : "std:080"
         }
       },
-      "city": "std:080",
       "version": "1.1.0",
       "bap_id": "ps-bap-network.becknprotocol.io",
       "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -161,10 +163,10 @@
         "payments": [
           {
             "type": "PRE-FULFILLMENT",
+            "url": "payto://ban/98273982749428?amount=INR:3030&ifsc=SBIN0000575&message=payment",
             "collected_by": "BPP",
             "status": "PAID",
             "params": {
-                "url": "payto://ban/98273982749428?amount=INR:3030&ifsc=SBIN0000575&message=payment",
                 "transaction_id" : "ABCD2414143231",
                 "amount": "3030",
                 "currency": "INR"
