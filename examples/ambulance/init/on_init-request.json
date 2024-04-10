@@ -135,9 +135,9 @@
       "payments": [
         {
           "type": "PRE-FULFILLMENT",
+          "url": "payto://ban/1234567890?amount=INR:55000&ifsc=ABCD0000123&message=ambulance-payment",
           "status": "NOT-PAID",
           "params": {
-            "url": "payto://ban/1234567890?amount=INR:55000&ifsc=ABCD0000123&message=ambulance-payment",
             "amount": "55000",
             "currency": "INR"
           }

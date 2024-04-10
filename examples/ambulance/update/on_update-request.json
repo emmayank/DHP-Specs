@@ -94,9 +94,7 @@
               "type": "END",
               "location": {
                 "gps": "12.423483,77.325697"
-              }
-            },
-            {
+              },
               "time": {
                 "label": "estimated-time",
                 "timestamp": "2023-09-15T07:50:00Z"
