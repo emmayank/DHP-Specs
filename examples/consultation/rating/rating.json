@@ -6,9 +6,11 @@
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city" : {
+        "code" : "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -19,10 +21,12 @@
     "timestamp": "2023-07-16T04:41:16Z"
   },
   "message": {
-    "rating": {
-      "rating_category": "Agent",
-      "id": "FULAGE123",
-      "value": "5"
-    }
+    "rating": [
+      {
+        "rating_category": "Agent",
+        "id": "FULAGE123",
+        "value": "5"
+      }
+    ]
   }
 }
