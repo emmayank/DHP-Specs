@@ -31,8 +31,10 @@
         },
         "quantity": {
           "available": {
-            "value": "3.0",
-            "unit": "unit"
+            "measure": {
+              "value": "3",
+              "unit": "units"
+            }
           }
         }
       }
