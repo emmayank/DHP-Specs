@@ -7,8 +7,8 @@
         "name": "India",
         "code": "IND"
       },
-      "city" : {
-        "code" : "std:080"
+      "city": {
+        "code": "std:080"
       }
     },
     "version": "1.1.0",
@@ -170,7 +170,7 @@
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER"  
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [

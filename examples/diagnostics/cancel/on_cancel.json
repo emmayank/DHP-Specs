@@ -7,8 +7,8 @@
         "name": "India",
         "code": "IND"
       },
-      "city" : {
-        "code" : "std:080"
+      "city": {
+        "code": "std:080"
       }
     },
     "version": "1.1.0",
@@ -24,94 +24,94 @@
     "order": {
       "id": "be69bb43-8286-48b4-801f-a8c5b41ad450",
       "provider": {
-          "id": "289edce4-d002-4962-b311-4c025e22b4f6",
-          "descriptor": {
-            "name": "GioLabs Pvt Ltd",
-            "short_desc": "X-rays, tests and more",
-            "long_desc" : "Advanced diagnostics & precise testing at XYZ Pathology Lab. Fast, accurate results for informed healthcare decisions.",
-            "images": [
-              {
-                "url": "https://giolabs.in/images/logo.png"
-              }
-            ],
-            "media" : [
-              {
-                  "mimetype": "application/pdf",
-                  "url": "https://www.aiims.com/honours/237402938409485039850935"
-              },
-              {
-                  "mimetype": "application/pdf",
-                  "url": "https://www.aiims.com/honours/2374029384094850394240935"
-              }
-            ]
-          },
-          "rating": "4.5"
+        "id": "289edce4-d002-4962-b311-4c025e22b4f6",
+        "descriptor": {
+          "name": "GioLabs Pvt Ltd",
+          "short_desc": "X-rays, tests and more",
+          "long_desc": "Advanced diagnostics & precise testing at XYZ Pathology Lab. Fast, accurate results for informed healthcare decisions.",
+          "images": [
+            {
+              "url": "https://giolabs.in/images/logo.png"
+            }
+          ],
+          "media": [
+            {
+              "mimetype": "application/pdf",
+              "url": "https://www.aiims.com/honours/237402938409485039850935"
+            },
+            {
+              "mimetype": "application/pdf",
+              "url": "https://www.aiims.com/honours/2374029384094850394240935"
+            }
+          ]
+        },
+        "rating": "4.5"
       },
       "items": [
-          {
-              "id": "lab-test-01",
-              "descriptor": {
-                  "code": "ecg",
-                  "name": "Electrocardiogram test"
-              },
-              "price": {
-                  "value": "3000",
-                  "currency": "INR"
-              },
-              "category_ids": [
-                  "cat-01"
-              ],
-              "fulfillment_ids": [
-                  "ful-01",
-                  "ful-02"
-              ]
-          }
+        {
+          "id": "lab-test-01",
+          "descriptor": {
+            "code": "ecg",
+            "name": "Electrocardiogram test"
+          },
+          "price": {
+            "value": "3000",
+            "currency": "INR"
+          },
+          "category_ids": [
+            "cat-01"
+          ],
+          "fulfillment_ids": [
+            "ful-01",
+            "ful-02"
+          ]
+        }
       ],
       "fulfillments": [
         {
           "id": "ful-01",
           "type": "walk-in",
           "stops": [
-              {
-                "type": "end",
-                "time": {
-                  "range" : {
-                    "start" : "0000-00-00T10:00:00Z",
-                    "end" : "0000-00-00T18:00:00Z"
-                  },
-                  "days": "1,2,3,4,5,6,7",
-                  "schedule" : {
-                    "holidays" : [
-                        "2024-12-10",
-                        "2024-12-11",
-                        "2024-12-12"
-                    ]
-                  }
+            {
+              "type": "end",
+              "time": {
+                "range": {
+                  "start": "0000-00-00T10:00:00Z",
+                  "end": "0000-00-00T18:00:00Z"
                 },
-                "location": {
-                    "gps": "12.9716° N, 77.5946° E",
-                    "address": "Akashya nagar B17/14",
-                    "state": {
-                        "name": "Madhya Pradesh"
-                    },
-                    "city": {
-                        "name": "Bhopal"
-                    },
-                    "area_code": "462001"
+                "days": "1,2,3,4,5,6,7",
+                "schedule": {
+                  "holidays": [
+                    "2024-12-10",
+                    "2024-12-11",
+                    "2024-12-12"
+                  ]
                 }
+              },
+              "location": {
+                "gps": "12.9716° N, 77.5946° E",
+                "address": "Akashya nagar B17/14",
+                "state": {
+                  "name": "Madhya Pradesh"
+                },
+                "city": {
+                  "name": "Bhopal"
+                },
+                "area_code": "462001"
               }
+            }
           ],
           "customer": {
-              "person": {
-                  "name": "Rajesh Kumar",
-                  "age": "26",
-                  "gender": "M",
-                  "dob": "1995-09-11"
-              },
-              "contact" :{
-                  "phone" : "+91-9999999999",
-                  "email" : "rajesh.kumar@example.com"
-              }
+            "person": {
+              "name": "Rajesh Kumar",
+              "age": "26",
+              "gender": "M",
+              "dob": "1995-09-11"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "rajesh.kumar@example.com"
+            }
           },
           "agent": {
             "person": {
@@ -119,9 +119,9 @@
               "name": "Mr. Shivam Arora",
               "gender": "male"
             },
-            "contact" : {
-              "phone" : "+91-7897898765",
-              "email" : "shivam-labsamplecollector@gmail.com"
+            "contact": {
+              "phone": "+91-7897898765",
+              "email": "shivam-labsamplecollector@gmail.com"
             }
           },
           "state": {
@@ -155,10 +155,10 @@
         ]
       },
       "billing": {
-          "name": "Rajesh Kumar",
-          "address": "Villa 5, Green Valley, Malleshwaram, 560012",
-          "email": "rajesh.kumar@example.com",
-          "phone": "+91-9999999999"
+        "name": "Rajesh Kumar",
+        "address": "Villa 5, Green Valley, Malleshwaram, 560012",
+        "email": "rajesh.kumar@example.com",
+        "phone": "+91-9999999999"
       },
       "payments": [
         {
@@ -167,9 +167,9 @@
           "collected_by": "BPP",
           "status": "PAID",
           "params": {
-              "transaction_id" : "ABCD2414143231",
-              "amount": "3030",
-              "currency": "INR"
+            "transaction_id": "ABCD2414143231",
+            "amount": "3030",
+            "currency": "INR"
           }
         }
       ],

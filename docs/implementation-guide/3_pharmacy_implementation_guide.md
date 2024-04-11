@@ -33,45 +33,32 @@ The following recommendations need to be considered when implementing discovery 
 A search request for a drugs may look like this
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "search",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "search",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
+      "city": {
+        "code": "std:080"
+      }
     },
-    "message": {
-      "intent": {
-        "category": {
-          "id": "pharmacy"
-        },
-        "location": {
-          "circle" : {
-            "gps": "12.423423,77.325647",
-            "radius": {
-              "type": "CONSTANT",
-              "value": "5",
-              "unit": "km"
-            }
-          }
-        },
-        "item": {
-          "descriptor" :{
-            "name": "paracetamol"
-          }
-        }
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "intent": {
+      "category": {
+        "id": "pharmacy"
       }
     }
+  }
 }
 ```
 
@@ -85,14 +72,16 @@ An example catalog of drugs may look like this
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
-    "bap_url": "https://ps-bap-client.becknprotocol.io",
+    "bap_url": "https://ps-bap-client.becknprotocol.io/",
     "bpp_id": "beckn-sandbox-bpp.becknprotocol.io",
-    "bpp_uri": "https://sandbox-bpp-network.becknprotocol.io",
+    "bpp_uri": "https://sandbox-bpp-network.becknprotocol.io/",
     "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
     "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
     "timestamp": "2023-07-16T04:41:16Z"
@@ -379,70 +368,72 @@ This section provides recommendations for implementing the APIs related to order
 Below is an example of a `select` request
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "select",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "select",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
-    },
-    "message": {
-      "order": {
-        "provider": {
-          "id": "e92e7a6e-1f20-4a8d-b343-956e0d45a48c"
-        },
-        "items": [
-          {
-            "id": "fb0999b7-7755-46d6-a2ed-b286b7c98436",
-            "quantity": {
-              "selected": {
-                "measure": {
-                  "value": "2",
-                  "unit": "units"
-                }
-              }
-            }
-          },
-          {
-            "id": "1cef39d8-72d0-46f7-99ca-3f18f4bda8e3",
-            "quantity": {
-              "selected": {
-                "measure": {
-                  "value": "3",
-                  "unit": "units"
-                }
-              }
-            }
-          }
-        ],
-        "fulfillments": [
-          {
-            "id": "ful-02",
-            "stops": [
-              {
-                "location": {
-                  "gps": "1.3806217468119772, 103.74636438437074",
-                  "area_code": "680230"
-                }
-              }
-            ]
-          }
-        ]
+      "city": {
+        "code": "std:080"
       }
+    },
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "e92e7a6e-1f20-4a8d-b343-956e0d45a48c"
+      },
+      "items": [
+        {
+          "id": "fb0999b7-7755-46d6-a2ed-b286b7c98436",
+          "quantity": {
+            "selected": {
+              "measure": {
+                "value": "2",
+                "unit": "units"
+              }
+            }
+          }
+        },
+        {
+          "id": "1cef39d8-72d0-46f7-99ca-3f18f4bda8e3",
+          "quantity": {
+            "selected": {
+              "measure": {
+                "value": "3",
+                "unit": "units"
+              }
+            }
+          }
+        }
+      ],
+      "fulfillments": [
+        {
+          "id": "ful-02",
+          "stops": [
+            {
+              "location": {
+                "gps": "1.3806217468119772, 103.74636438437074",
+                "area_code": "680230"
+              }
+            }
+          ]
+        }
+      ]
     }
   }
+}
 ```
 
 Below is an example of an `on_select` callback
@@ -455,14 +446,16 @@ Below is an example of an `on_select` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
-    "bap_url": "https://ps-bap-client.becknprotocol.io",
+    "bap_url": "https://ps-bap-client.becknprotocol.io/",
     "bpp_id": "beckn-sandbox-bpp.becknprotocol.io",
-    "bpp_uri": "https://sandbox-bpp-network.becknprotocol.io",
+    "bpp_uri": "https://sandbox-bpp-network.becknprotocol.io/",
     "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
     "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
     "timestamp": "2023-07-16T04:41:16Z"
@@ -572,115 +565,117 @@ Below is an example of an `on_select` callback
 Below is an example of a `init` request
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "init",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "init",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
-    },
-    "message": {
-      "order": {
-        "provider": {
-          "id": "e92e7a6e-1f20-4a8d-b343-956e0d45a48c"
-        },
-        "items": [
-          {
-            "id": "fb0999b7-7755-46d6-a2ed-b286b7c98436",
-            "quantity": {
-              "selected": {
-                "measure": {
-                  "value": "2",
-                  "unit": "units"
-                }
-              }
-            }
-          },
-          {
-            "id": "1cef39d8-72d0-46f7-99ca-3f18f4bda8e3",
-            "quantity": {
-              "selected": {
-                "measure": {
-                  "value": "3",
-                  "unit": "units"
-                }
-              }
-            }
-          }
-        ],
-        "fulfillments": [
-          {
-            "id": "ful-02",
-            "customer": {
-              "contact": {
-                "email": "fox.judie@abc.org",
-                "phone": "+91-9999999999"
-              },
-              "person": {
-                "name": "Judie Fox"
-              }
-            },
-            "stops": [
-              {
-                "location": {
-                  "gps": "1.3806217468119772, 103.74636438437074",
-                  "address": "My House #, My building",
-                  "city": {
-                    "name": "Jurong East"
-                  },
-                  "country": {
-                    "code": "SGP"
-                  },
-                  "area_code": "680230",
-                  "state": {
-                    "name": "bayern"
-                  }
-                },
-                "contact": {
-                  "phone": "9886098860"
-                }
-              }
-            ]
-          }
-        ],
-        "billing": {
-          "name": "Alice Smith",
-          "address": "Apt 303, Maple Towers, Richmond Road, 560001",
-          "state": {
-            "name": "Jurong East"
-          },
-          "city": {
-            "name": "Jurong East"
-          },
-          "email": "alice.smith@example.com",
-          "phone": "9886098860"
-        },
-        "docs": [
-          {
-            "descriptor": {
-              "code": "prescription",
-              "name": "Medicine prescription",
-              "short_desc": "Prescription uploaded here"
-            },
-            "mime_type": "application/pdf",
-            "url": "https://quickpharma.in/prescription/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
-          }
-        ]
+      "city": {
+        "code": "std:080"
       }
+    },
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "e92e7a6e-1f20-4a8d-b343-956e0d45a48c"
+      },
+      "items": [
+        {
+          "id": "fb0999b7-7755-46d6-a2ed-b286b7c98436",
+          "quantity": {
+            "selected": {
+              "measure": {
+                "value": "2",
+                "unit": "units"
+              }
+            }
+          }
+        },
+        {
+          "id": "1cef39d8-72d0-46f7-99ca-3f18f4bda8e3",
+          "quantity": {
+            "selected": {
+              "measure": {
+                "value": "3",
+                "unit": "units"
+              }
+            }
+          }
+        }
+      ],
+      "fulfillments": [
+        {
+          "id": "ful-02",
+          "customer": {
+            "contact": {
+              "email": "fox.judie@abc.org",
+              "phone": "+91-9999999999"
+            },
+            "person": {
+              "name": "Judie Fox"
+            }
+          },
+          "stops": [
+            {
+              "location": {
+                "gps": "1.3806217468119772, 103.74636438437074",
+                "address": "My House #, My building",
+                "city": {
+                  "name": "Jurong East"
+                },
+                "country": {
+                  "code": "SGP"
+                },
+                "area_code": "680230",
+                "state": {
+                  "name": "bayern"
+                }
+              },
+              "contact": {
+                "phone": "9886098860"
+              }
+            }
+          ]
+        }
+      ],
+      "billing": {
+        "name": "Alice Smith",
+        "address": "Apt 303, Maple Towers, Richmond Road, 560001",
+        "state": {
+          "name": "Jurong East"
+        },
+        "city": {
+          "name": "Jurong East"
+        },
+        "email": "alice.smith@example.com",
+        "phone": "9886098860"
+      },
+      "docs": [
+        {
+          "descriptor": {
+            "code": "prescription",
+            "name": "Medicine prescription",
+            "short_desc": "Prescription uploaded here"
+          },
+          "mime_type": "application/pdf",
+          "url": "https://quickpharma.in/prescription/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
+        }
+      ]
     }
   }
+}
 ```
 
 Below is an example of `on_init` callback
@@ -693,9 +688,11 @@ Below is an example of `on_init` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -874,119 +871,121 @@ Below is an example of `on_init` callback
 Below is an example of a `confirm` request
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "confirm",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "confirm",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
-    },
-    "message": {
-      "order": {
-        "provider": {
-          "id": "e92e7a6e-1f20-4a8d-b343-956e0d45a48c"
-        },
-        "items": [
-          {
-            "id": "fb0999b7-7755-46d6-a2ed-b286b7c98436",
-            "quantity": {
-              "selected": {
-                "measure": {
-                  "value": "2",
-                  "unit": "units"
-                }
-              }
-            }
-          },
-          {
-            "id": "1cef39d8-72d0-46f7-99ca-3f18f4bda8e3",
-            "quantity": {
-              "selected": {
-                "measure": {
-                  "value": "3",
-                  "unit": "units"
-                }
-              }
-            }
-          }
-        ],
-        "fulfillments": [
-          {
-            "id": "ful-02",
-            "customer": {
-              "contact": {
-                "email": "fox.judie@abc.org",
-                "phone": "+91-9999999999"
-              },
-              "person": {
-                "name": "Judie Fox"
-              }
-            },
-            "stops": [
-              {
-                "location": {
-                  "gps": "1.3806217468119772, 103.74636438437074",
-                  "address": "My House #, My building",
-                  "city": {
-                    "name": "Jurong East"
-                  },
-                  "country": {
-                    "code": "SGP"
-                  },
-                  "area_code": "680230",
-                  "state": {
-                    "name": "bayern"
-                  }
-                },
-                "contact": {
-                  "phone": "9886098860"
-                }
-              }
-            ]
-          }
-        ],
-        "billing": {
-          "name": "Alice Smith",
-          "address": "Apt 303, Maple Towers, Richmond Road, 560001",
-          "state": {
-            "name": "Jurong East"
-          },
-          "city": {
-            "name": "Jurong East"
-          },
-          "email": "alice.smith@example.com",
-          "phone": "9886098860"
-        },
-        "payments": [
-          {
-            "collected_by": "BPP",
-            "params": {
-              "amount": "700",
-              "currency": "INR",
-              "bank_account_number": "1234002341",
-              "bank_code": "INB0004321",
-              "bank_account_name": "Strapi BPP Limited"
-            },
-            "status": "PAID",
-            "type": "PRE-ORDER",
-            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
-          }
-        ]
+      "city": {
+        "code": "std:080"
       }
+    },
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "e92e7a6e-1f20-4a8d-b343-956e0d45a48c"
+      },
+      "items": [
+        {
+          "id": "fb0999b7-7755-46d6-a2ed-b286b7c98436",
+          "quantity": {
+            "selected": {
+              "measure": {
+                "value": "2",
+                "unit": "units"
+              }
+            }
+          }
+        },
+        {
+          "id": "1cef39d8-72d0-46f7-99ca-3f18f4bda8e3",
+          "quantity": {
+            "selected": {
+              "measure": {
+                "value": "3",
+                "unit": "units"
+              }
+            }
+          }
+        }
+      ],
+      "fulfillments": [
+        {
+          "id": "ful-02",
+          "customer": {
+            "contact": {
+              "email": "fox.judie@abc.org",
+              "phone": "+91-9999999999"
+            },
+            "person": {
+              "name": "Judie Fox"
+            }
+          },
+          "stops": [
+            {
+              "location": {
+                "gps": "1.3806217468119772, 103.74636438437074",
+                "address": "My House #, My building",
+                "city": {
+                  "name": "Jurong East"
+                },
+                "country": {
+                  "code": "SGP"
+                },
+                "area_code": "680230",
+                "state": {
+                  "name": "bayern"
+                }
+              },
+              "contact": {
+                "phone": "9886098860"
+              }
+            }
+          ]
+        }
+      ],
+      "billing": {
+        "name": "Alice Smith",
+        "address": "Apt 303, Maple Towers, Richmond Road, 560001",
+        "state": {
+          "name": "Jurong East"
+        },
+        "city": {
+          "name": "Jurong East"
+        },
+        "email": "alice.smith@example.com",
+        "phone": "9886098860"
+      },
+      "payments": [
+        {
+          "collected_by": "BPP",
+          "params": {
+            "amount": "700",
+            "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
+            "bank_account_number": "1234002341",
+            "bank_code": "INB0004321",
+            "bank_account_name": "Strapi BPP Limited"
+          },
+          "status": "PAID",
+          "type": "PRE-ORDER"
+        }
+      ]
     }
   }
+}
 ```
 Below is an example of an `on_confirm` callback
 ```
@@ -998,9 +997,11 @@ Below is an example of an `on_confirm` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1154,13 +1155,13 @@ Below is an example of an `on_confirm` callback
           "params": {
             "amount": "700",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1251,29 +1252,31 @@ This section contains recommendations for implementing the APIs related to deliv
 Below is an example of a `status` request
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "status",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "status",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
+      "city": {
+        "code": "std:080"
+      }
     },
-    "message": {
-      "order_id": "853c7593-f4bf-4557-8832-118a591787ba"
-    }
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "order_id": "853c7593-f4bf-4557-8832-118a591787ba"
   }
+}
 ```
 
 Below is an example of an `on_status` callback
@@ -1286,9 +1289,11 @@ Below is an example of an `on_status` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1389,8 +1394,8 @@ Below is an example of an `on_status` callback
           ],
           "state": {
             "descriptor": {
-              "code": "order-packed",
-              "name": "Order has been packed and can be picked up from the store"
+              "code": "order-picked-up",
+              "name": "Order has been picked up"
             }
           }
         }
@@ -1442,13 +1447,13 @@ Below is an example of an `on_status` callback
           "params": {
             "amount": "700",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1473,37 +1478,38 @@ Below is an example of an `on_status` callback
 ```
 
 Below is an example of a `cancel` request
-
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "cancel",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "cancel",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
-    },
-    "message": {
-      "order_id": "853c7593-f4bf-4557-8832-118a591787ba",
-      "cancellation_reason_id": "4",
-      "descriptor": {
-        "short_desc": "Prescription Changed",
-        "long_desc": "The patient's prescription has been changed, and the medication order is no longer valid."
+      "city": {
+        "code": "std:080"
       }
+    },
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "order_id": "853c7593-f4bf-4557-8832-118a591787ba",
+    "cancellation_reason_id": "4",
+    "descriptor": {
+      "short_desc": "Prescription Changed",
+      "long_desc": "The patient's prescription has been changed, and the medication order is no longer valid."
     }
   }
+}
 ```
 Below is an example of an `on_cancel` callback
 ```
@@ -1515,9 +1521,11 @@ Below is an example of an `on_cancel` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1678,13 +1686,13 @@ Below is an example of an `on_cancel` callback
           "params": {
             "amount": "700",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1708,60 +1716,61 @@ Below is an example of an `on_cancel` callback
 }
 ```
 Below is an example of a `update` request
-
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "update",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "update",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
-    },
-    "message": {
-      "update_target": "order.fulfillments[0].stops[0]",
-      "order": {
-        "id": "853c7593-f4bf-4557-8832-118a591787ba",
-        "fulfillments": [
-          {
-            "stops": [
-              {
-                "location": {
-                  "gps": "1.3806217468119772, 103.74636438437074",
-                  "address": "My House #, My building",
-                  "city": {
-                    "name": "Jurong East"
-                  },
-                  "country": {
-                    "code": "SGP"
-                  },
-                  "area_code": "680230",
-                  "state": {
-                    "name": "bayern"
-                  }
-                },
-                "contact": {
-                  "phone": "9886098860"
-                }
-              }
-            ]
-          }
-        ]
+      "city": {
+        "code": "std:080"
       }
+    },
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "update_target": "order.fulfillments[0].stops[0]",
+    "order": {
+      "id": "853c7593-f4bf-4557-8832-118a591787ba",
+      "fulfillments": [
+        {
+          "stops": [
+            {
+              "location": {
+                "gps": "1.3806217468119772, 103.74636438437074",
+                "address": "My House #, My building",
+                "city": {
+                  "name": "Jurong East"
+                },
+                "country": {
+                  "code": "SGP"
+                },
+                "area_code": "680230",
+                "state": {
+                  "name": "bayern"
+                }
+              },
+              "contact": {
+                "phone": "9886098860"
+              }
+            }
+          ]
+        }
+      ]
     }
   }
+}
 ```
 Below is an example of an `on_update` callback
 ```
@@ -1773,9 +1782,11 @@ Below is an example of an `on_update` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1929,13 +1940,13 @@ Below is an example of an `on_update` callback
           "params": {
             "amount": "700",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1959,26 +1970,28 @@ Below is an example of an `on_update` callback
 }
 ```
 Below is an example of an `track` request
-
 ```
 {
   "context": {
-    "domain": "dhp:0.7.3",
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "track",
     "location": {
       "country": {
+        "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "action": "track",
-    "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
-    "bap_uri": "https://dhp-network-bap.becknprotocol.io/",
-    "bap_id": "dhp-bap.becknprotocol.io",
-    "bpp_uri": "https://dhp-network-bpp.becknprotocol.io/",
-    "bpp_id": "dhp-bpp.becknprotocol.io",
-    "ttl": "PT10M"
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
   },
   "message": {
     "order_id": "853c7593-f4bf-4557-8832-118a591787ba",
@@ -1987,31 +2000,33 @@ Below is an example of an `track` request
 }
 ```
 Below is an example of an `on_track` callback
-
 ```
 {
   "context": {
-    "domain": "dhp:0.7.3",
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "on_track",
     "location": {
       "country": {
+        "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "action": "on_track",
-    "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
-    "bap_uri": "https://dhp-network-bap.becknprotocol.io/",
-    "bap_id": "dhp-bap.becknprotocol.io",
-    "bpp_uri": "https://dhp-network-bpp.becknprotocol.io/",
-    "bpp_id": "dhp-bpp.becknprotocol.io",
-    "ttl": "PT10M"
+    "bap_id": "ps-bap-network.becknprotocol.io",
+    "bap_url": "https://ps-bap-client.becknprotocol.io/",
+    "bpp_id": "beckn-sandbox-bpp.becknprotocol.io",
+    "bpp_uri": "https://sandbox-bpp-network.becknprotocol.io/",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
   },
   "message": {
     "tracking": {
       "id": "853c7593-f4bf-4557-8832-118a591787ba",
-      "url": "https://quickPharma-provider.com/track/3210fedcba98",
+      "url": "https://quickpharma-provider.com/track/3210fedcba98",
       "status": "active",
       "location": {
         "descriptor": {
@@ -2067,38 +2082,39 @@ This section contains recommendations for implementing the APIs after delivering
 ### 3.4.4 Example Requests
 
 Below is an example of a `rating` request
-
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "rating",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "rating",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
+      "city": {
+        "code": "std:080"
+      }
     },
-    "message": {
-      "ratings": [
-        {
-          "id": "853c7593-f4bf-4557-8832-118a591787ba",
-          "rating_category": "Item",
-          "value": "5"
-        }
-      ]
-    }
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "ratings": [
+      {
+        "id": "853c7593-f4bf-4557-8832-118a591787ba",
+        "rating_category": "Item",
+        "value": "5"
+      }
+    ]
   }
+}
 ```
 Below is an example of an `on_rating` callback
 ```
@@ -2110,9 +2126,11 @@ Below is an example of an `on_rating` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io//",
@@ -2144,9 +2162,11 @@ Below is an example of a `support` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "{{bap_id}}",
     "bap_uri": "{{bap_uri}}",
@@ -2168,44 +2188,46 @@ Below is an example of a `support` request
 Below is an example of an `on_support` callback
 ```
 {
-    "context": {
-      "domain": "dhp:pharmacy:0.1.0",
-      "action": "on_support",
-      "location": {
-        "country": {
-          "name": "India",
-          "code": "IND"
-        }
+  "context": {
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "on_support",
+    "location": {
+      "country": {
+        "name": "India",
+        "code": "IND"
       },
-      "city": "std:080",
-      "version": "1.1.0",
-      "bap_id": "{{bap_id}}",
-      "bap_uri": "{{bap_uri}}",
-      "bpp_id": "{{bpp_id}}",
-      "bpp_uri": "{{bpp_uri}}",
-      "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
-      "timestamp": "2023-07-16T04:41:16Z"
-    },
-    "message": {
-      "support": {
-        "ref_id": "853c7593-f4bf-4557-8832-118a591787ba",
-        "order_id": "853c7593-f4bf-4557-8832-118a591787ba",
-        "callback_phone": "+91-8858150053",
-        "email": "support@ekstep.com",
-        "phone": "+91-965676879",
-        "url": "chat-url-for-support",
-        "docs": [
-          {
-            "descriptor": {
-              "name": "FAQs",
-              "short_desc": "Frequently asked questions and common issues"
-            },
-            "url": "https://link-to-the-document.com",
-            "mime_type": "application/pdf"
-          }
-        ]
+      "city": {
+        "code": "std:080"
       }
+    },
+    "version": "1.1.0",
+    "bap_id": "{{bap_id}}",
+    "bap_uri": "{{bap_uri}}",
+    "bpp_id": "{{bpp_id}}",
+    "bpp_uri": "{{bpp_uri}}",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
+  },
+  "message": {
+    "support": {
+      "ref_id": "853c7593-f4bf-4557-8832-118a591787ba",
+      "order_id": "853c7593-f4bf-4557-8832-118a591787ba",
+      "callback_phone": "+91-8858150053",
+      "email": "support@ekstep.com",
+      "phone": "+91-965676879",
+      "url": "chat-url-for-support",
+      "docs": [
+        {
+          "descriptor": {
+            "name": "FAQs",
+            "short_desc": "Frequently asked questions and common issues"
+          },
+          "url": "https://link-to-the-document.com",
+          "mime_type": "application/pdf"
+        }
+      ]
     }
+  }
 }
 ```
