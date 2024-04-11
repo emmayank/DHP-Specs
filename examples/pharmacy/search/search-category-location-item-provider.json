@@ -6,9 +6,11 @@
         "country": {
           "name": "India",
           "code": "IND"
+        },
+        "city" : {
+          "code" : "std:080"
         }
       },
-      "city": "std:080",
       "version": "1.1.0",
       "bap_id": "{{bap_id}}",
       "bap_uri": "{{bap_uri}}",
@@ -21,15 +23,21 @@
         "category": {
           "id": "pharmacy"
         },
-        "location": {
-          "circle" : {
-            "gps": "12.423423,77.325647",
-            "radius": {
-              "type": "CONSTANT",
-              "value": "5",
-              "unit": "km"
+        "fulfillment" : {
+          "stops" : [
+            {
+              "location": {
+                "circle" : {
+                  "gps": "12.423423,77.325647",
+                  "radius": {
+                    "type": "CONSTANT",
+                    "value": "5",
+                    "unit": "km"
+                  }
+                }
+              }
             }
-          }
+          ]
         },
         "item": {
           "descriptor" :{

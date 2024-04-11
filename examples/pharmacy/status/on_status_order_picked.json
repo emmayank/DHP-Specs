@@ -1,26 +1,28 @@
 {
   "context": {
-    "domain": "dhp:0.7.3",
+    "domain": "dhp:pharmacy:0.1.0",
+    "action": "on_status",
     "location": {
       "country": {
+        "name": "India",
         "code": "IND"
+      },
+      "city" : {
+        "code" : "std:080"
       }
     },
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "action": "on_cancel",
-    "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
-    "bap_uri": "https://dhp-network-bap.becknprotocol.io/",
-    "bap_id": "dhp-bap.becknprotocol.io",
-    "bpp_uri": "https://dhp-network-bpp.becknprotocol.io/",
-    "bpp_id": "dhp-bpp.becknprotocol.io",
-    "ttl": "PT10M"
+    "bap_id": "ps-bap-network.becknprotocol.io",
+    "bap_url": "https://ps-bap-client.becknprotocol.io/",
+    "bpp_id": "beckn-sandbox-bpp.becknprotocol.io",
+    "bpp_uri": "https://sandbox-bpp-network.becknprotocol.io/",
+    "transaction_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "message_id": "6743e9e2-4fb5-487c-92b7-13ba8018f176",
+    "timestamp": "2023-07-16T04:41:16Z"
   },
   "message": {
     "order": {
       "id": "853c7593-f4bf-4557-8832-118a591787ba",
-      "status": "CANCELLED",
       "provider": {
         "id": "e92e7a6e-1f20-4a8d-b343-956e0d45a48c",
         "descriptor": {
@@ -77,42 +79,66 @@
         {
           "id": "ful-02",
           "type": "HOME-DELIVERY",
+          "customer": {
+            "contact": {
+              "email": "fox.judie@abc.org",
+              "phone": "+91-9999999999"
+            },
+            "person": {
+              "name": "Judie Fox"
+            }
+          },
           "stops": [
             {
-              "type": "start",
-              "time": {
-                "timestamp": "2023-09-15T08:00:00Z"
-              },
               "location": {
-                "gps": "12.423423,77.325647"
-              }
-            },
-            {
-              "type": "end",
-              "time": {
-                "timestamp": "2023-09-15T18:30:00Z"
+                "gps": "1.3806217468119772, 103.74636438437074",
+                "address": "My House #, My building",
+                "city": {
+                  "name": "Jurong East"
+                },
+                "country": {
+                  "code": "SGP"
+                },
+                "area_code": "680230",
+                "state": {
+                  "name": "bayern"
+                }
               },
-              "location": {
-                "gps": "12.423483,77.325697"
+              "contact": {
+                "phone": "9886098860"
               }
             }
           ],
           "state": {
             "descriptor": {
-              "code": "order-cancelled",
-              "name": "Order has been cancelled"
+              "code": "order-picked-up",
+              "name": "Order has been picked up"
             }
           }
         }
       ],
       "quote": {
         "price": {
-          "value": "50",
+          "value": "700",
           "currency": "INR"
         },
         "breakup": [
           {
-            "title": "cancellation charge",
+            "title": "Benadryl 2 units",
+            "price": {
+              "currency": "INR",
+              "value": "200"
+            }
+          },
+          {
+            "title": "hycodan 3 units",
+            "price": {
+              "currency": "INR",
+              "value": "450"
+            }
+          },
+          {
+            "title": "delivery charge",
             "price": {
               "currency": "INR",
               "value": "50"
@@ -123,18 +149,28 @@
       "billing": {
         "name": "Alice Smith",
         "address": "Apt 303, Maple Towers, Richmond Road, 560001",
+        "state": {
+          "name": "Jurong East"
+        },
+        "city": {
+          "name": "Jurong East"
+        },
         "email": "alice.smith@example.com",
-        "phone": "+91-7777777777"
+        "phone": "9886098860"
       },
       "payments": [
         {
-          "type": "PRE-FULFILLMENT",
-          "status": "NOT-PAID",
+          "collected_by": "BPP",
           "params": {
-            "url": "payto://ban/1234567890?amount=INR:50&ifsc=ABCD0000123&message=medicine-payment",
             "amount": "700",
-            "currency": "INR"
-          }
+            "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
+            "bank_account_number": "1234002341",
+            "bank_code": "INB0004321",
+            "bank_account_name": "Strapi BPP Limited"
+          },
+          "status": "PAID",
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
