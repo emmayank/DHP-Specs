@@ -7,7 +7,7 @@
         "name": "India",
         "code": "IND"
       },
-      "city" : {
+      "city": {
         "code": "std:080"
       }
     },

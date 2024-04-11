@@ -44,12 +44,14 @@ A search request for a consultation service may look like this
         "domain": "dhp:consultation:0.1.0",
         "action": "search",
         "location": {
-        "country": {
-            "name": "India",
-            "code": "IND"
-        }
+            "country": {
+                "name": "India",
+                "code": "IND"
+            },
+            "city": {
+                "code": "std:080"
+            }
         },
-        "city": "std:080",
         "version": "1.1.0",
         "bap_id": "ps-bap-network.becknprotocol.io",
         "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -81,9 +83,11 @@ An example catalog of consultation service may look like this
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -112,10 +116,24 @@ An example catalog of consultation service may look like this
           },
           "categories": [
             {
+              "id": "cat-01",
+              "descriptor": {
+                "code": "cardiology",
+                "name": "Cardiology"
+              }
+            },
+            {
               "id": "cat-02",
               "descriptor": {
                 "code": "orthopaedic",
                 "name": "Orthopaedic"
+              }
+            },
+            {
+              "id": "cat-03",
+              "descriptor": {
+                "code": "ent",
+                "name": "ENT"
               }
             }
           ],
@@ -139,12 +157,24 @@ An example catalog of consultation service may look like this
                     {
                       "code": "hindi",
                       "name": "Hindi"
+                    },
+                    {
+                      "code": "english",
+                      "name": "English"
+                    },
+                    {
+                      "code": "kannada",
+                      "name": "Kannada"
                     }
                   ],
                   "skills": [
                     {
                       "code": "mbbs",
                       "name": "MBBS"
+                    },
+                    {
+                      "code": "md",
+                      "name": "MD"
                     }
                   ],
                   "tags": [
@@ -163,6 +193,78 @@ An example catalog of consultation service may look like this
                   ]
                 },
                 "rating": "4.5"
+              },
+              "stops": [
+                {
+                  "location": {
+                    "gps": "12.9716° N, 77.5946° E",
+                    "address": "Akashya nagar B17/14",
+                    "state": {
+                      "name": "Madhya Pradesh"
+                    },
+                    "city": {
+                      "name": "Bhopal"
+                    },
+                    "area_code": "462001"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "ful-02",
+              "type": "OPD",
+              "agent": {
+                "person": {
+                  "id": "237402938409485039850935",
+                  "name": "Dr Bhargava",
+                  "gender": "female",
+                  "creds": [
+                    {
+                      "id": "237402938409485039850935",
+                      "type": "VerifiableCredential",
+                      "url": "https://www.aiims.com/honours/237402938409485039850935"
+                    }
+                  ],
+                  "languages": [
+                    {
+                      "code": "hindi",
+                      "name": "Hindi"
+                    },
+                    {
+                      "code": "english",
+                      "name": "English"
+                    },
+                    {
+                      "code": "kannada",
+                      "name": "Kannada"
+                    }
+                  ],
+                  "skills": [
+                    {
+                      "code": "mbbs",
+                      "name": "MBBS"
+                    },
+                    {
+                      "code": "md",
+                      "name": "MD"
+                    }
+                  ],
+                  "tags": [
+                    {
+                      "display": true,
+                      "descriptor": {
+                        "code": "about",
+                        "name": "About the Doctor"
+                      },
+                      "list": [
+                        {
+                          "value": "With over 10 years of experience in Orthopaedics"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "rating": "5"
               },
               "stops": [
                 {
@@ -199,6 +301,28 @@ An example catalog of consultation service may look like this
               ],
               "fulfillment_ids": [
                 "ful-01"
+              ],
+              "time": {
+                "duration": "PT30M"
+              }
+            },
+            {
+              "id": "cons-02",
+              "descriptor": {
+                "code": "consultation",
+                "name": "Orthopaedic Surgeon",
+                "short_desc": "Orthopaedic Surgeon",
+                "long_desc": "Skilled orthopaedic surgeon specializing in diagnosing & treating musculoskeletal conditions using advanced surgical techniques & compassionate care"
+              },
+              "price": {
+                "value": "400",
+                "currency": "INR"
+              },
+              "category_ids": [
+                "cat-02"
+              ],
+              "fulfillment_ids": [
+                "ful-02"
               ],
               "time": {
                 "duration": "PT30M"
@@ -274,9 +398,11 @@ Below is an example of a `select` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -316,9 +442,11 @@ Below is an example of an `on_select` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -386,12 +514,24 @@ Below is an example of an `on_select` callback
                 {
                   "code": "hindi",
                   "name": "Hindi"
+                },
+                {
+                  "code": "english",
+                  "name": "English"
+                },
+                {
+                  "code": "kannada",
+                  "name": "Kannada"
                 }
               ],
               "skills": [
                 {
                   "code": "mbbs",
                   "name": "MBBS"
+                },
+                {
+                  "code": "md",
+                  "name": "MD"
                 }
               ],
               "tags": [
@@ -475,9 +615,11 @@ Below is an example of a `init` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -552,9 +694,11 @@ Below is an example of first `on_init` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -661,12 +805,24 @@ Below is an example of first `on_init` callback
                 {
                   "code": "hindi",
                   "name": "Hindi"
+                },
+                {
+                  "code": "english",
+                  "name": "English"
+                },
+                {
+                  "code": "kannada",
+                  "name": "Kannada"
                 }
               ],
               "skills": [
                 {
                   "code": "mbbs",
                   "name": "MBBS"
+                },
+                {
+                  "code": "md",
+                  "name": "MD"
                 }
               ],
               "tags": [
@@ -774,7 +930,6 @@ Below is an example of first `on_init` callback
 }
 ```
 Below is an example of Second `on_init` callback
-
 ```
 {
   "context": {
@@ -784,9 +939,11 @@ Below is an example of Second `on_init` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -866,12 +1023,24 @@ Below is an example of Second `on_init` callback
                 {
                   "code": "hindi",
                   "name": "Hindi"
+                },
+                {
+                  "code": "english",
+                  "name": "English"
+                },
+                {
+                  "code": "kannada",
+                  "name": "Kannada"
                 }
               ],
               "skills": [
                 {
                   "code": "mbbs",
                   "name": "MBBS"
+                },
+                {
+                  "code": "md",
+                  "name": "MD"
                 }
               ],
               "tags": [
@@ -977,7 +1146,6 @@ Below is an example of Second `on_init` callback
     }
   }
 }
-
 ```
 
 Below is an example of a `confirm` request
@@ -990,9 +1158,11 @@ Below is an example of a `confirm` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1058,13 +1228,13 @@ Below is an example of a `confirm` request
           "params": {
             "amount": "350",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ]
     }
@@ -1081,9 +1251,11 @@ Below is an example of an `on_confirm` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1225,13 +1397,13 @@ Below is an example of an `on_confirm` callback
           "params": {
             "amount": "350",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1315,9 +1487,11 @@ Below is an example of a `status` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1343,9 +1517,11 @@ Below is an example of an `on_status` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1487,13 +1663,13 @@ Below is an example of an `on_status` callback
           "params": {
             "amount": "350",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1513,7 +1689,6 @@ Below is an example of an `on_status` callback
 ```
 
 Below is an example of a `cancel` request
-
 ```
 {
   "context": {
@@ -1523,9 +1698,11 @@ Below is an example of a `cancel` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1554,9 +1731,11 @@ Below is an example of an `on_cancel` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1698,13 +1877,13 @@ Below is an example of an `on_cancel` callback
           "params": {
             "amount": "350",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1727,7 +1906,6 @@ Below is an example of an `on_cancel` callback
 }
 ```
 Below is an example of a `update` request
-
 ```
 {
   "context": {
@@ -1737,9 +1915,11 @@ Below is an example of a `update` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1754,21 +1934,22 @@ Below is an example of a `update` request
       "id": "759b905c-5a30-4d18-a6af-0decbac9282f",
       "fulfillments": [
         {
-          "stops": [
-            {
-              "time": {
-                "label": "Booking Slots",
-                "range": {
-                  "start": "2023-11-04 10:00",
-                  "end": "2023-11-04 10:30"
-                }
-              }
+          "customer": {
+            "person": {
+              "name": "Jane Doe",
+              "age": "13",
+              "gender": "female",
+              "dob": "1995-09-11"
+            },
+            "contact": {
+              "phone": "+91-9663088848",
+              "email": "jane.doe@example.com"
             }
-          ]
+          }
         }
       ]
     },
-    "update_target": "order.fulfillments[0].stops[0].time"
+    "update_target": "order.fulfillments[0].customer"
   }
 }
 ```
@@ -1782,9 +1963,11 @@ Below is an example of an `on_update` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -1926,13 +2109,13 @@ Below is an example of an `on_update` callback
           "params": {
             "amount": "350",
             "currency": "INR",
+            "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c",
             "bank_account_number": "1234002341",
             "bank_code": "INB0004321",
             "bank_account_name": "Strapi BPP Limited"
           },
           "status": "PAID",
-          "type": "PRE-ORDER",
-          "transaction_id": "a35b56cf-e5cf-41f1-9b5d-fa99d8d5ac8c"
+          "type": "PRE-ORDER"
         }
       ],
       "cancellation_terms": [
@@ -1992,7 +2175,6 @@ This section contains recommendations for implementing the APIs after fulfilling
 ### 1.4.4 Example Requests
 
 Below is an example of a `rating` request
-
 ```
 {
   "context": {
@@ -2002,9 +2184,11 @@ Below is an example of a `rating` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -2015,11 +2199,13 @@ Below is an example of a `rating` request
     "timestamp": "2023-07-16T04:41:16Z"
   },
   "message": {
-    "rating": {
-      "rating_category": "Agent",
-      "id": "FULAGE123",
-      "value": "5"
-    }
+    "rating": [
+      {
+        "rating_category": "Agent",
+        "id": "FULAGE123",
+        "value": "5"
+      }
+    ]
   }
 }
 ```
@@ -2033,9 +2219,11 @@ Below is an example of an `on_rating` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -2067,9 +2255,11 @@ Below is an example of a `support` request
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
@@ -2098,9 +2288,11 @@ Below is an example of an `on_support` callback
       "country": {
         "name": "India",
         "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
       }
     },
-    "city": "std:080",
     "version": "1.1.0",
     "bap_id": "ps-bap-network.becknprotocol.io",
     "bap_url": "https://ps-bap-client.becknprotocol.io/",
