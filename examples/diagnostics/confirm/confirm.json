@@ -7,8 +7,8 @@
                 "name": "India",
                 "code": "IND"
             },
-            "city" : {
-                "code" : "std:080"
+            "city": {
+                "code": "std:080"
             }
         },
         "version": "1.1.0",
@@ -46,24 +46,24 @@
                             "gender": "M",
                             "dob": "1995-09-11"
                         },
-                        "contact" :{
-                            "phone" : "+91-9999999999",
-                            "email" : "rajesh.kumar@example.com"
+                        "contact": {
+                            "phone": "+91-9999999999",
+                            "email": "rajesh.kumar@example.com"
                         }
                     }
                 }
             ],
             "payments": [
                 {
-                  "type": "PRE-FULFILLMENT",
-                  "url": "payto://ban/98273982749428?amount=INR:3030&ifsc=SBIN0000575&message=payment",
-                  "collected_by": "BPP",
-                  "status": "PAID",
-                  "params": {
-                    "transaction_id" : "ABCD2414143231",
-                    "amount": "3030",
-                    "currency": "INR"
-                  }
+                    "type": "PRE-FULFILLMENT",
+                    "url": "payto://ban/98273982749428?amount=INR:3030&ifsc=SBIN0000575&message=payment",
+                    "collected_by": "BPP",
+                    "status": "PAID",
+                    "params": {
+                        "transaction_id": "ABCD2414143231",
+                        "amount": "3030",
+                        "currency": "INR"
+                    }
                 }
             ]
         }
